@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bielmusic</title>
+    <script src="./js/funcoes.js"></script>
+    <script src="./js/cadastro.js"></script>
+    <link rel="icon" href="./assets/icon.png">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+
+
+    <div class="cadastro">
+        <span class="title"><img src="./assets/music.png">Cadastre-se</span>
+        <section>
+            <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                <fieldset>
+                    <div class="form-v-001">
+                        <input type="text" name="nome" placeholder="Nome">
+                    </div>
+                    <div class="form-v-001">
+                        <input type="text" name="apelido" placeholder="Apelido">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-v-001">
+                        <input type="text" name="email" placeholder="E-mail">
+                    </div>
+                    <div class="form-v-001">
+                        <input type="password" name="senha" placeholder="Senha">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-v-001">
+                        <input type="text" name="usuario" placeholder="Usuário">
+                    </div>
+
+
+                    <div class="form-v-001">
+                        <input type="number" name="cep" placeholder="Cep">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-v-001">
+                        <input type="number" name="idade" placeholder="Sua Idade">
+                    </div>
+
+
+                    <div class="form-v-001">
+                        <input type="text" name="prefe" placeholder="Preferência músical">
+                    </div>
+                </fieldset>
+
+                <div id="check">
+                    <input type="checkbox" checked id="accept">
+                    <p>Você concorda com nossos&nbsp;<a href="#">termos e condições</a></p>
+                </div>
+
+
+                <button id="btncadastrar">Cadastrar</button>
+            </form><br>
+
+        </section>
+        <div id="div_aguardar" class="loading-div">
+            <img src="./assets/circle-loading.gif" id="loading-gif"></div>
+        <div id="div_erros_login"></div>
+    </div>
+</body>
+
+</html>
