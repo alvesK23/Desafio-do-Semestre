@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BielMusic</title>
+    <link rel="icon" href="../assets/icon.png">
+    <link rel="stylesheet" href="./css/style0005.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/funcoes.js"></script>
+</head>
+
+<body onload="validarSessao()">
+    <div class="janela">
+
+        <div class="navebar">
+            <ul>
+                <li>
+                    <a href="sobre.html">Sobre</a>
+                </li>
+                <li>
+                    <a href="simulador.html">Simulador</a>
+                </li>
+                <li><a href="novidades.html">Novidades</a> </li>
+
+                <span onclick="limparSessao()"><button title="sair" class="sair">Sair</button></span>
+
+            </ul>
+
+        </div>
+        <div class="page-titles">
+            <div class="ferramentas"><img title="configurações" src="../img/engrenagem.png">
+                <img title="mensagens" src="../img/msg.png">
+                <img title="notificações" src="../img/sino.png"></div>
+        </div>
+
+        <div class="header-left">
+            <div class="foto">
+                <img src="../img/boneco.png">
+            </div>
+
+            <h1><span id="b_usuario"></span></h1>
+
+
+
+            <div class="painel"></div>
+        </div>
+        <div class="graficos">
+            <canvas id="myChart2" style="width: 100%; height: 100%"></canvas>
+        </div>
+        <div class="chat">
+            <div class="titulo">CHAT</div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script src="./js/grafico2.js"></script>
+<script src=""></script>
