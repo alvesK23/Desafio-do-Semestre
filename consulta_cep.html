@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta CEP</title>
+</head>
+
+<body>
+    <input onkeyup="consulta()" type="text" id="input_cep" placeholder="digite um cep" >
+   
+
+    <span id="msg"></span>
+</body>
+
+</html>
+<script>
+    function consulta() {
+        var cep = input_cep.value;
+        console.log(cep);
+        fetch(`https://viacep.com.br/ws/${cep}/json/`, {
+            method: "GET",
+            mode: "cors"
+        }).then(function (resposta) {
+            resposta.json().then(function (data) {
+                console.log(data)
+                msg.innerHTML = `
+                localidade:  ${data.localidade}<br>
+                bairro  ${data.bairro}
+
+                `
+            })
+            console.log(resposta)
+        }).catch(function (erro) {
+            console.log(erro)
+        })
+    }
+
+
+
+
+
+
+
+function consulta() {
+    var cep = input_cep.value;
+    var dataJson;
+    console.log(cep);
+    fetch(`https://viacep.com.br/ws/${cep}/json/`, {
+        method: "GET",
+        mode: "cors"
+    }).then(function (resposta) {
+        resposta.json().then(function (data) {
+            console.log(data)
+            dataJson = data;
+        })
+        console.log(resposta)
+    }).catch(function (erro) {
+        console.log(erro)
+    })
+    return dataJson;
+}
+
+module.exports={
+    consulta
+}
+</script>
