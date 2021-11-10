@@ -1,5 +1,4 @@
 var usuarioModel = require("../models/usuarioModel");
-
 var sessoes = [];
 
 function testar(req, res) {
@@ -59,6 +58,7 @@ function entrar(req, res) {
 
 }
 
+
 function cadastrar(req, res) {
     var nome = req.body.nome;
     var apelido = req.body.apelido;
@@ -68,6 +68,7 @@ function cadastrar(req, res) {
     var cep = req.body.cep;
     var idade = req.body.idade;
     var preferenciaMusic = req.body.prefe;
+
 
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
@@ -95,6 +96,7 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
+
     entrar,
     cadastrar,
     listar,

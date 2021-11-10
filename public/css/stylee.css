@@ -1,0 +1,133 @@
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        
+        .banner {
+            background-image: url(../img/fundo.jpg);
+            width: 100vw;
+            height: 91vh;
+        }
+        
+        .navbar {
+            display: inline-block;
+            background-color: #02365d;
+            width: 100vw;
+            height: 9vh;
+            opacity: 0.9;
+        }
+        
+        .navbar:hover {
+            height: 10vh;
+            opacity: 0.9;
+            background-color: #025123;
+        }
+        
+        .footer {
+            position: fixed;
+            bottom: 0px;
+            opacity: 0.9;
+            background-color: #02365d;
+            width: 100vw;
+            height: 9vh;
+            justify-content: center;
+            display: flex;
+            color: white;
+        }
+        
+        .navbar span {
+            color: #F09C33;
+            font-size: 3vh;
+            display: flex;
+            position: absolute;
+            top: 2.5%;
+            margin-left: 3%;
+        }
+        
+        .navbar span:hover {
+            color: #02365d;
+            font-size: 4vh;
+        }
+        
+        .navbar ul {
+            color: white;
+            display: inline-block;
+            display: flex;
+            justify-content: center;
+            margin-top: 0.1;
+        }
+        
+        .navbar button a {
+            color: #F09C33;
+            text-decoration: none;
+        }
+        
+        .navbar button a:hover {
+            color: #02365d;
+            text-decoration: none;
+        }
+        
+        .navbar ul li {
+            list-style-type: none;
+            margin: 20px;
+            width: 10vw;
+        }
+        
+        .navbar ul li:hover {
+            color: #F09C33;
+            font-size: 20px;
+            text-decoration: underline;
+        }
+        
+        .navbar .cadastro {
+            color: #F09C33;
+            font-size: 3vh;
+            display: flex;
+            justify-content: flex-end;
+            position: absolute;
+            top: 2.5%;
+            margin-left: 81%;
+            background-color: transparent;
+            border-style: solid;
+            border-radius: 20px;
+            border-color: #12ff75;
+        }
+        
+        .navbar .cadastro:hover {
+            border-color: #02365d;
+        }
+        
+        .navbar .login {
+            color: #F09C33;
+            font-size: 3vh;
+            display: flex;
+            justify-content: flex-end;
+            position: absolute;
+            top: 2.5%;
+            margin-left: 90%;
+            background-color: transparent;
+            border-style: solid;
+            border-radius: 20px;
+            border-color: #0dbb55;
+        }
+        
+        .navbar .login:hover {
+            border-color: #02365d;
+        }
+        
+        .container {
+            background-color: white;
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        .contai {
+            margin-left: 2.6%;
+            margin-top: 5%;
+            display: inline-block;
+            justify-content: center;
+            width: 30vw;
+            height: 30vh;
+            background-color: #02365d;
+        }

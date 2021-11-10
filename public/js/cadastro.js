@@ -42,6 +42,9 @@ function cadastrar() {
         return false;
     }
 
+
+
+
     fetch("/usuarios/cadastrar", {
         method: "POST",
         body: formulario

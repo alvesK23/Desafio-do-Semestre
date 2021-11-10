@@ -9,61 +9,33 @@
 </head>
 
 <body>
-    <input onkeyup="consulta()" type="text" id="input_cep" placeholder="digite um cep" >
-   
+    <input type="text" name="input_cep" placeholder="digite um cep">
+    <button onclick="consulta()">consulta</button>
 
     <span id="msg"></span>
 </body>
 
 </html>
 <script>
+    var cep;
+    var dataJson;
+
     function consulta() {
         var cep = input_cep.value;
+        var dataJson;
         console.log(cep);
         fetch(`https://viacep.com.br/ws/${cep}/json/`, {
             method: "GET",
             mode: "cors"
-        }).then(function (resposta) {
-            resposta.json().then(function (data) {
+        }).then(function(resposta) {
+            resposta.json().then(function(data) {
                 console.log(data)
-                msg.innerHTML = `
-                localidade:  ${data.localidade}<br>
-                bairro  ${data.bairro}
-
-                `
+                dataJson = data;
             })
             console.log(resposta)
-        }).catch(function (erro) {
+        }).catch(function(erro) {
             console.log(erro)
         })
+        return dataJson;
     }
-
-
-
-
-
-
-
-function consulta() {
-    var cep = input_cep.value;
-    var dataJson;
-    console.log(cep);
-    fetch(`https://viacep.com.br/ws/${cep}/json/`, {
-        method: "GET",
-        mode: "cors"
-    }).then(function (resposta) {
-        resposta.json().then(function (data) {
-            console.log(data)
-            dataJson = data;
-        })
-        console.log(resposta)
-    }).catch(function (erro) {
-        console.log(erro)
-    })
-    return dataJson;
-}
-
-module.exports={
-    consulta
-}
 </script>

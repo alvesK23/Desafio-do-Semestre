@@ -35,9 +35,9 @@
                  console.log(json);
                  console.log(JSON.stringify(json));
 
-                 sessionStorage.EMAIL_USUARIO = json.email;
-                 sessionStorage.NOME_USUARIO = json.nome;
-                 sessionStorage.ID_USUARIO = json.id;
+                 sessionStorage.USUARIO_USUARIO = json.usuario;
+                 sessionStorage.APELIDO_USUARIO = json.apelido;
+                 sessionStorage.ID_USUARIO = json.idusuario;
 
                  setTimeout(function() {
                      window.location = "./dashboard/index.html";
