@@ -2,11 +2,11 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #4f3975;
+    background-color: #02365d;
 }
 
 .container {
-    background-color: #4f3975;
+    background-color: #02365d;
     height: 90vh;
     width: 80vw;
     border: transparent;
@@ -31,7 +31,7 @@ body {
 
 .title {
     cursor: pointer;
-    color: #4f3975;
+    color: #02365d;
     font-size: 3rem;
     font-family: Helvetica, Arial, sans-serif;
     justify-content: center;
@@ -92,7 +92,7 @@ fieldset:nth-child(4) {
 }
 
 #check a {
-    color: #4f3975;
+    color: #02365d;
 }
 
 #btncadastrar {
@@ -103,7 +103,7 @@ fieldset:nth-child(4) {
     width: 20vw;
     height: 7vh;
     color: #FFFF;
-    background-color: #4f3975;
+    background-color: #02365d;
     border-style: solid;
     border-radius: 10px;
 }
@@ -121,18 +121,19 @@ fieldset:nth-child(4) {
 .cadastro span a {
     color: #4f3975;
 }
+
 .loading-div {
-  width: 50px;
-  /* border: 3px solid pink; */
-  margin: auto;
-  display: none;
+    width: 50px;
+    /* border: 3px solid pink; */
+    margin: auto;
+    display: none;
 }
 
 .loading-div img {
-  height: 50px;
-  width: 50px;
+    height: 50px;
+    width: 50px;
 }
 
 .cadastro #div_erros_login {
-  margin-top: 15px;
+    margin-top: 15px;
 }

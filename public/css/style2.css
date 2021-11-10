@@ -2,11 +2,11 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #F09C33;
+    background-color: #02365d;
 }
 
 .container {
-    background-color: #4f3975;
+    background-color: white;
     height: 90vh;
     width: 80vw;
     border: transparent;
@@ -31,7 +31,7 @@ body {
 
 .title {
     cursor: pointer;
-    color: #4f3975;
+    color: #02365d;
     font-size: 3rem;
     font-family: Helvetica, Arial, sans-serif;
     justify-content: center;
@@ -77,7 +77,7 @@ fieldset:nth-child(1) {
     width: 20vw;
     height: 7vh;
     color: #FFFF;
-    background-color: #4f3975;
+    background-color: #02365d;
     border-style: solid;
     border-radius: 10px;
 }
@@ -93,7 +93,7 @@ fieldset:nth-child(1) {
 }
 
 .cadastro span a {
-    color: #4f3975;
+    color: #02365d;
 }
 
 .loading-div {
