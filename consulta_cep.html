@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <input type="text" name="input_cep" placeholder="digite um cep">
+    <input type="text" id="input_cep" placeholder="digite um cep">
     <button onclick="consulta()">consulta</button>
 
     <span id="msg"></span>
@@ -18,11 +18,12 @@
 </html>
 <script>
     var cep;
-    var dataJson;
+    var djason;
+    var djasonaaa;
 
     function consulta() {
-        var cep = input_cep.value;
-        var dataJson;
+        cep = input_cep.value;
+
         console.log(cep);
         fetch(`https://viacep.com.br/ws/${cep}/json/`, {
             method: "GET",
@@ -30,12 +31,14 @@
         }).then(function(resposta) {
             resposta.json().then(function(data) {
                 console.log(data)
-                dataJson = data;
+                djason = data.localidade;
+                djasonaaa = data.bairro;
+                msg.innerHTML = `${djason}<br> ${djasonaaa}`;
             })
             console.log(resposta)
         }).catch(function(erro) {
             console.log(erro)
         })
-        return dataJson;
+
     }
 </script>

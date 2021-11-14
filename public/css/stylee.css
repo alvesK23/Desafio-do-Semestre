@@ -5,7 +5,7 @@
         }
         
         .banner {
-            background-image: url(../img/fundo.jpg);
+            background-image: url(../img/bk1.jpg);
             width: 100vw;
             height: 91vh;
         }
@@ -15,13 +15,13 @@
             background-color: #02365d;
             width: 100vw;
             height: 9vh;
-            opacity: 0.9;
+            opacity: 0.7;
         }
         
         .navbar:hover {
             height: 10vh;
             opacity: 0.9;
-            background-color: #025123;
+            background-color: #F09C33;
         }
         
         .footer {
@@ -37,7 +37,7 @@
         }
         
         .navbar span {
-            color: #F09C33;
+            color: white;
             font-size: 3vh;
             display: flex;
             position: absolute;
@@ -59,7 +59,7 @@
         }
         
         .navbar button a {
-            color: #F09C33;
+            color: white;
             text-decoration: none;
         }
         
@@ -75,7 +75,7 @@
         }
         
         .navbar ul li:hover {
-            color: #F09C33;
+            color: #02365d;
             font-size: 20px;
             text-decoration: underline;
         }
@@ -91,7 +91,7 @@
             background-color: transparent;
             border-style: solid;
             border-radius: 20px;
-            border-color: #12ff75;
+            border-color: #F09C33;
         }
         
         .navbar .cadastro:hover {
@@ -109,7 +109,7 @@
             background-color: transparent;
             border-style: solid;
             border-radius: 20px;
-            border-color: #0dbb55;
+            border-color: #F09C33;
         }
         
         .navbar .login:hover {

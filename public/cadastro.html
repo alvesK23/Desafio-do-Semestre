@@ -19,52 +19,58 @@
     <div class="cadastro">
         <span class="title"><img src="./assets/music.png">Cadastre-se</span>
         <section>
-            <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
-                <fieldset>
-                    <div class="form-v-001">
-                        <input type="text" name="nome" placeholder="Nome">
-                    </div>
-                    <div class="form-v-001">
-                        <input type="text" name="apelido" placeholder="Apelido">
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div class="form-v-001">
-                        <input type="text" name="email" placeholder="E-mail">
-                    </div>
-                    <div class="form-v-001">
-                        <input type="password" name="senha" placeholder="Senha">
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div class="form-v-001">
-                        <input type="text" name="usuario" placeholder="Usuário">
-                    </div>
-
-
-                    <div class="form-v-001">
-                        <input type="number" name="cep" placeholder="Cep">
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div class="form-v-001">
-                        <input type="number" name="idade" placeholder="Sua Idade">
-                    </div>
-
-
-                    <div class="form-v-001">
-                        <input type="text" name="prefe" placeholder="Preferência músical">
-                    </div>
-                </fieldset>
-
-                <div id="check">
-                    <input type="checkbox" checked id="accept">
-                    <p>Você concorda com nossos&nbsp;<a href="#">termos e condições</a></p>
+            <fieldset>
+                <div class="form-v-001">
+                    <input type="text" id="Inpu_nome" placeholder="Nome">
+                </div>
+                <div class="form-v-001">
+                    <input type="text" id="Inpu_apelido" placeholder="Apelido">
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="form-v-001">
+                    <input type="text" id="Inpu_email" placeholder="E-mail">
+                </div>
+                <div class="form-v-001">
+                    <input type="password" id="Inpu_senha" placeholder="Senha">
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="form-v-001">
+                    <input type="text" id="Inpu_usuario" placeholder="Usuário">
                 </div>
 
 
-                <button onclick="consulta()" id="btncadastrar">Cadastrar</button>
-            </form><br>
+                <div class="form-v-001">
+                    <input type="number" id="Inpu_cep" onkeyup="consulta()" maxlength="8" placeholder="Cep">
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="form-v-001">
+                    <input type="number" id="Inpu_idade" placeholder="Sua Idade">
+                </div>
+
+
+                <div class="form-v-001">
+                    <input type="text" id="Inpu_prefe" placeholder="Preferência: funk,trap">
+                </div>
+            </fieldset>
+
+            <div id="check">
+                <input type="checkbox" checked id="Inpu_accept">
+                <p>Você concorda com nossos&nbsp;<a href="#popup1">termos e condições</a></p>
+            </div>
+            <div id="popup1" class="overlay">
+                <div class="popup">
+                    <h2>Nossos termos</h2>
+                    <a class="close" href="#">&times;</a>
+                    <div class="content">
+                        1-&nbsp;Respeitar todos os usuarios igualmente.<br><br> 2-&nbsp;Interagir com a comunidade pelo menos x2 vezes ao dia.<br><br>3-&nbsp;Reconhece e concorda que todos os direitos da conta são e deverão ser propriedade da BMusic.<br><br>                        4-&nbsp;Você é o único responsável por toda e qualquer atividade sobre sua conta.<br><br> 5-&nbsp;BMusic não será responsável por qualquer perda ou dano que possa sofrer como resultado de outra pessoa utilizando a sua conta.<br><br></div>
+                </div>
+            </div>
+
+            <button onclick="cadastrar()" id="btncadastrar">Cadastrar</button>
+            <br>
 
         </section>
         <div id="div_aguardar" class="loading-div">
@@ -74,3 +80,152 @@
 </body>
 
 </html>
+<script>
+    function limparFormulario() {
+        document.getElementById("form_cadastro").reset();
+    }
+
+
+    var cepVar;
+    var localVar;
+    var bairroVar;
+
+    function consulta() {
+        cepVar = Inpu_cep.value;
+
+        console.log(cepVar);
+        fetch(`https://viacep.com.br/ws/${cepVar}/json/`, {
+            method: "GET",
+            mode: "cors"
+        }).then(function(resposta) {
+            resposta.json().then(function(data) {
+                console.log(data)
+                localVar = data.localidade;
+                bairroVar = data.bairro;
+            })
+            console.log(resposta)
+        }).catch(function(erro) {
+            console.log(erro)
+        })
+
+    }
+
+
+
+    function cadastrar() {
+        aguardar();
+
+        var nomeVar = Inpu_nome.value;
+        var apelidoVar = Inpu_apelido.value;
+        var emailVar = Inpu_email.value;
+        var senhaVar = Inpu_senha.value;
+        var usuarioVar = Inpu_usuario.value;
+        var cepVar = Inpu_cep.value;
+        var idadeVar = Inpu_idade.value;
+        var prefeVar = Inpu_prefe.value;
+        var acceptVar = Inpu_accept.checked;
+        prefeVar = prefeVar.toLowerCase();
+
+        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        if (nomeVar == "" || apelidoVar == "" || emailVar == "" || senhaVar == "" || usuarioVar == "" || cepVar == "" || idadeVar == "" || prefeVar == "") {
+
+            window.alert("Preencha todos os campos para prosseguir!");
+            if (nomeVar == "") {
+                console.log('nome está em branco')
+            }
+            if (apelidoVar == "") {
+                console.log('apelido está em branco')
+            }
+            if (emailVar == "") {
+                console.log('email está em branco')
+            }
+            if (senhaVar == "") {
+                console.log('senha está em branco')
+            }
+            if (cepVar == "") {
+                console.log('cep está em branco')
+            }
+            if (idadeVar == "") {
+                console.log('idade está em branco')
+            }
+            if (prefeVar == "") {
+                console.log('preferencia está em branco')
+            }
+
+            finalizarAguardar();
+            return false;
+        }
+
+        if (emailVar.indexOf("@gmail.com") == -1 & emailVar.indexOf("@yahoo.com") == -1 & emailVar.indexOf("@hotmail.com") == -1 & emailVar.indexOf("@bandtec.com") == -1) {
+            window.alert("Ops, e-mail inválido ,lembre-se de informar um e-mail das paltaformas: google,yahoo,hotmail,bandtec. Verifique e tente novamente.");
+            finalizarAguardar();
+            return false;
+        }
+        if (cepVar.length <= 7 || cepVar.length >= 9) {
+            window.alert("cep é composto por 8 Digitos!, informe um cep válido!");
+            finalizarAguardar();
+            return false;
+        }
+        if (idadeVar < 7) {
+            window.alert("Você deve ter pelo menos 7 anos !");
+            finalizarAguardar();
+            return false;
+        }
+        if (acceptVar == false) {
+            window.alert("Ops, aceite nossos termos para continuar.");
+            finalizarAguardar();
+            return false;
+        }
+        if (apelidoVar == senhaVar) {
+            window.alert("Seu Apelido não pode ser igual a sua senha!");
+            finalizarAguardar();
+            return false;
+        }
+        if (apelidoVar == senhaVar) {
+            window.alert("Seu Apelido não pode ser igual a sua senha!");
+            finalizarAguardar();
+            return false;
+        }
+
+        if (prefeVar.indexOf("funk") == -1 & prefeVar.indexOf("rap") == -1 & prefeVar.indexOf("trap") == -1 & prefeVar.indexOf("samba") == -1 & prefeVar.indexOf("forro") == -1 & prefeVar.indexOf("rock") == -1 & prefeVar.indexOf("eletronica") == -1) {
+            window.alert("informe um gênero dos tipos : funk");
+            finalizarAguardar();
+            return false;
+        }
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nome: nomeVar,
+                apelido: apelidoVar,
+                email: emailVar,
+                senha: senhaVar,
+                usuario: usuarioVar,
+                cep: cepVar,
+                idade: idadeVar,
+                prefe: prefeVar,
+                accept: acceptVar,
+                bairro: bairroVar,
+                localidade: localVar,
+            })
+        }).then(function(resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Cadastro realizado com sucesso!");
+                window.location = "login.html";
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function(resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+    }
+</script>

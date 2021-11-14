@@ -1,6 +1,7 @@
 var usuarioModel = require("../models/usuarioModel");
 var sessoes = [];
 
+
 function testar(req, res) {
     console.log("ENTRAMOS NA usuarioController");
     res.json("ESTAMOS FUNCIONANDO!");
@@ -67,9 +68,9 @@ function cadastrar(req, res) {
     var usuario = req.body.usuario;
     var cep = req.body.cep;
     var idade = req.body.idade;
-    var preferenciaMusic = req.body.prefe;
-
-
+    var prefe = req.body.prefe;
+    var bairro = req.body.bairro;
+    var localidade = req.body.localidade;
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (usuario == undefined) {
@@ -77,7 +78,7 @@ function cadastrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else {
-        usuarioModel.cadastrar(nome, apelido, email, senha, usuario, cep, idade, preferenciaMusic)
+        usuarioModel.cadastrar(nome, apelido, email, senha, usuario, cep, idade, prefe, bairro, localidade)
             .then(
                 function(resultado) {
                     res.json(resultado);
