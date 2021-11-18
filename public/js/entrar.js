@@ -38,6 +38,7 @@
                  sessionStorage.USUARIO_USUARIO = json.usuario;
                  sessionStorage.APELIDO_USUARIO = json.apelido;
                  sessionStorage.ID_USUARIO = json.idusuario;
+                 sessionStorage.FOTOPERFIL_USUARIO = json.fotoperfil;
 
                  setTimeout(function() {
                      window.location = "./dashboard/index.html";

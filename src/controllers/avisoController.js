@@ -6,13 +6,13 @@ function testar(req, res) {
 }
 
 function listar(req, res) {
-    avisoModel.listar().then(function (resultado) {
+    avisoModel.listar().then(function(resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
         }
-    }).catch(function (erro) {
+    }).catch(function(erro) {
         console.log(erro);
         console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
@@ -24,7 +24,7 @@ function listarPorUsuario(req, res) {
 
     avisoModel.listarPorUsuario(idUsuario)
         .then(
-            function (resultado) {
+            function(resultado) {
                 if (resultado.length > 0) {
                     res.status(200).json(resultado);
                 } else {
@@ -33,7 +33,7 @@ function listarPorUsuario(req, res) {
             }
         )
         .catch(
-            function (erro) {
+            function(erro) {
                 console.log(erro);
                 console.log(
                     "Houve um erro ao buscar os avisos: ",
@@ -49,7 +49,7 @@ function pesquisarDescricao(req, res) {
 
     avisoModel.pesquisarDescricao(descricao)
         .then(
-            function (resultado) {
+            function(resultado) {
                 if (resultado.length > 0) {
                     res.status(200).json(resultado);
                 } else {
@@ -57,7 +57,7 @@ function pesquisarDescricao(req, res) {
                 }
             }
         ).catch(
-            function (erro) {
+            function(erro) {
                 console.log(erro);
                 console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
                 res.status(500).json(erro.sqlMessage);
@@ -79,12 +79,12 @@ function publicar(req, res) {
     } else {
         avisoModel.publicar(titulo, descricao, idUsuario)
             .then(
-                function (resultado) {
+                function(resultado) {
                     res.json(resultado);
                 }
             )
             .catch(
-                function (erro) {
+                function(erro) {
                     console.log(erro);
                     console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
                     res.status(500).json(erro.sqlMessage);

@@ -1,6 +1,30 @@
 var usuarioModel = require("../models/usuarioModel");
 var sessoes = [];
 
+function fotoo(req, res) {
+    var ID = req.body.ID;
+    var foto = req.body.foto;
+    if (foto == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else {
+        usuarioModel.fotoo(foto, ID)
+            .then(
+                function(resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function(erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 
 function testar(req, res) {
     console.log("ENTRAMOS NA usuarioController");
@@ -96,10 +120,15 @@ function cadastrar(req, res) {
     }
 }
 
+
+
+
 module.exports = {
 
     entrar,
     cadastrar,
     listar,
-    testar
+    testar,
+    fotoo
+
 }

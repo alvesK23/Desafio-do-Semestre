@@ -17,9 +17,7 @@
 
         <div class="navebar">
             <ul>
-                <li>
-                    <a href="sobre.html">Sobre</a>
-                </li>
+
                 <li>
                     <a href="simulador.html">Simulador</a>
                 </li>
@@ -31,14 +29,16 @@
 
         </div>
         <div class="page-titles">
-            <div class="ferramentas"><img title="configurações" src="../img/engrenagem.png">
+            <div class="ferramentas">
+                <a href="#popup1"><img title="configurações" src="../img/engrenagem.png"></a>
                 <img title="mensagens" src="../img/msg.png">
                 <img title="notificações" src="../img/sino.png"></div>
         </div>
 
         <div class="header-left">
             <div class="foto">
-                <img src="../img/boneco.png">
+                <div id="foto_id"></div>
+
             </div>
 
             <h1><span id="b_usuario"></span></h1>
@@ -47,6 +47,21 @@
 
             <div class="painel"></div>
         </div>
+
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2>Configurações de conta</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+
+                    Foto:&nbsp;<input id="input_foto" placeholder="Insira o link da nova foto">&nbsp;<button class="botaofoto" onclick="fotinha()">Trocar Foto</button><br>
+
+                    <br>
+                </div>
+            </div>
+
+        </div>
+
         <div class="graficos">
             <canvas id="myChart2" style="width: 100%; height: 100%"></canvas>
         </div>
@@ -60,8 +75,59 @@
             </div>
         </div>
 
+
+
 </body>
 
 </html>
 <script src="./js/grafico2.js"></script>
-<script src=""></script>
+<script>
+    window.onload = function() {
+        var fotoperfilVar = sessionStorage.FOTOPERFIL_USUARIO;
+        foto_id.innerHTML = `<img  src="${fotoperfilVar}">`;
+
+        b_usuario.innerHTML = `${sessionStorage.APELIDO_USUARIO}`;
+
+    }
+
+    function fotinha() {
+        fotos = [];
+        var idusuarioVar = sessionStorage.ID_USUARIO;
+        var fotoperfilVar = sessionStorage.FOTOPERFIL_USUARIO;
+        var FTOvar = input_foto.value;
+        document.getElementById("foto_id").setAttribute("src", fotoperfilVar);
+
+        fetch("/usuarios/fotografo", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                foto: FTOvar,
+                ID: idusuarioVar,
+                FTO: FTOvar,
+            })
+        }).then(function(resposta) {
+
+            console.log("resposta: ", resposta);
+
+
+
+            if (resposta.ok) {
+                window.alert("link da Foto Cadastrada com sucesso!");
+
+                limparFormulario();
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function(resposta) {
+            console.log(`#ERRO: ${resposta}`);
+
+        });
+
+        for (var i = 0; i < fotos.length; i++) {
+            foto_id.innerHTML += `<img  src="${fotoperfilVar}">`;
+        }
+    }
+</script>

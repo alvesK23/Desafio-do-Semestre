@@ -28,8 +28,17 @@ function cadastrar(nome, apelido, email, senha, usuario, cep, idade, preferencia
     return database.executar(instrucao);
 }
 
+function fotoo(foto, ID) {
+
+    var instrucao = `UPDATE cadastro set fotoperfil='${foto}' where idusuario = ${ID}`;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
+    fotoo,
+
 };
