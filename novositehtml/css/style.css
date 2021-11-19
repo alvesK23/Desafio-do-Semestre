@@ -1,0 +1,229 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.background {
+    background-image: url("../img/background.jpg");
+    height: 100vh;
+}
+
+.header {
+    color: #0096ff;
+    border-bottom: 3px solid transparent;
+    /* border: 3px solid yellow; */
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    /* border: 3px solid pink; */
+}
+
+.header .container img {
+    width: 17vw;
+    height: 10vh;
+}
+
+.header a {
+    text-decoration: none;
+    color: white;
+}
+
+.header .cadastro {
+    cursor: pointer;
+    background-color: transparent;
+    border: solid;
+    border-left: 1px;
+    border-top: 1px;
+    color: white;
+    border-color: #e3b062;
+    font-size: 23px;
+}
+
+.header .cadastro:hover {
+    border-color: #9cf0e1;
+}
+
+.header .login {
+    cursor: pointer;
+    background-color: transparent;
+    border: solid;
+    border-right: 1px;
+    border-top: 1px;
+    color: white;
+    border-color: #9cf0e1;
+    font-size: 23px;
+}
+
+.header .login:hover {
+    border-color: #e3b062;
+}
+
+.header a:hover {
+    text-decoration: none;
+    color: #e3b062;
+    text-decoration: underline;
+}
+
+.agora {
+    font-weight: 800;
+}
+
+.agora:hover {
+    text-decoration: none;
+    color: white;
+    text-decoration: underline;
+}
+
+.navbar {
+    font-size: 22px;
+    width: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    list-style: none;
+    color: white;
+}
+
+* BANNER */ .banner {
+    height: 500px;
+    color: white;
+    /* border: 3px solid yellow; */
+    background-image: url(".././assets/imgs/bg-jelly-fish-para_outras_pags.png");
+    background-size: cover;
+}
+
+.banner .container {
+    /* border: 3px solid green; */
+    height: 500px;
+    display: flex;
+    color: white;
+    align-items: center;
+}
+
+.banner p {
+    /* border: 3px solid cyan; */
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    width: 280px;
+    font-size: 36px;
+    margin-left: 350px;
+}
+
+.banner p::after {
+    content: '|';
+    opacity: 1;
+    margin-left: 5px;
+    display: inline-block;
+    animation: blink .7s infinite;
+}
+
+.banner #button {
+    /* border: 3px solid cyan; */
+    width: 10%;
+    background: #9cf0e1;
+    color: #000;
+    border: 0;
+    border-radius: 100px;
+    font-weight: 600;
+    line-height: 52px;
+}
+
+.banner #button:hover {
+    background-color: #e3b062;
+}
+
+.banner span {
+    font-weight: 800;
+}
+
+
+/* missao visao valores */
+
+.social {
+    background-color: #e5e5e5;
+    /* border: 3px solid yellowgreen; */
+    padding: 50px 0;
+}
+
+.social .container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    /* border: 3px solid blue; */
+}
+
+
+/* usar este bloco para explicar margin e padding*/
+
+.social .titulo {
+    /* border: 3px solid pink; */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.social h2 {
+    display: flex;
+    padding: 20px;
+    background-color: transparent;
+    border-radius: 20px;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    color: #28183e;
+    margin: 0;
+    /* border: 3px solid orange; */
+}
+
+.social h2::after {
+    content: '|';
+    opacity: 1;
+    margin-left: 5px;
+    display: inline-block;
+    animation: blink .7s infinite;
+}
+
+@keyframes blink {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+.social .boxes {
+    display: flex;
+    /* border: 3px solid blue; */
+}
+
+.social .box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    width: 30%;
+    height: 30vh;
+    margin: 2%;
+    background-color: black;
+    /* border: 3px solid yellow; */
+}
+
+.social .box img {
+    width: 150px;
+    align-self: center;
+}
+
+.boxes .box img {
+    width: 100%;
+    border-width: 20px;
+    border: solid;
+    border-style: solid;
+    border-color: #301d53;
+}

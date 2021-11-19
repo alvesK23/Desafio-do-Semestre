@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./img/icon.png" type="image/x-icon">
+    <title>Group Music</title>
+</head>
+
+<body>
+    <div class="background">
+        <div class="header">
+            <div class="container">
+                <img src="./img/logo3.png">
+
+                <ul class="navbar">
+                    <li class="agora">Inicial</li>
+
+                    <li>
+                        <a href="./simulador.html">Simulador</a>
+                    </li>
+
+                    <li>
+                        <button class="login"> Login</button>
+                    </li>
+
+                    <li>
+                        <button class="cadastro">   Cadastro</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="banner">
+            <div class="container">
+                <p class="fala">
+                    Continue! Tudo o que você precisa chegará até você no momento certo..!
+
+                </p><br><button id="button">Inscreva-se</button>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="social">
+
+        <div class="container" id="social">
+
+            <div class="titulo">
+                <h2 class="melhores">Os melhores artistas parceiros de nossa comunidade:</h2>
+            </div>
+            <div class="boxes">
+                <div class="box">
+                    <img src="./img/yokai.jpg">
+
+                </div>
+
+                <div class="box">
+                    <img src="./img/esperando.jpg">
+
+                </div>
+
+                <div class="box">
+                    <img src="./img/esperando.jpg">
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
+<script>
+    function typeWriter(elemento) {
+
+        const textoArray = elemento.innerHTML.split('');
+        elemento.innerHTML = '';
+
+        for (let i = 0; i < textoArray.length; i++) {
+            setTimeout(() => elemento.innerHTML += textoArray[i], 75 * i);
+
+        }
+
+    }
+    const titulo = document.querySelector('.fala');
+    const titulo2 = document.querySelector('.melhores');
+    const titulo3 = document.querySelector('#button');
+    typeWriter(titulo);
+    typeWriter(titulo2);
+    typeWriter(titulo3);
+</script>
