@@ -227,3 +227,15 @@ body {
     border-style: solid;
     border-color: #301d53;
 }
+.container_inove {
+    background-color: #e5e5e5;
+    /* border: 3px solid yellowgreen; */
+    padding: 50px 0;
+}
+
+.container_inove .container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    /* border: 3px solid blue; */
+}
