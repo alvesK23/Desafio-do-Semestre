@@ -146,6 +146,8 @@ body {
     background-color: #e5e5e5;
     /* border: 3px solid yellowgreen; */
     padding: 50px 0;
+    background-image: url(https://static.soundtrap.com/public/images/musicmakers/img-musicmaker-collaborate-01-small_1.webp);
+    background-repeat: no-repeat;
 }
 
 .social .container {
@@ -196,9 +198,20 @@ body {
     }
 }
 
+
+/* background-image: url(../img/yokai.jpg);*/
+
+.social {
+    background-color: #1e1e1e;
+}
+
+.social .container h2 {
+    color: #FFFF;
+}
+
 .social .boxes {
     display: flex;
-    /* border: 3px solid blue; */
+    justify-content: flex-end;
 }
 
 .social .box {
@@ -207,23 +220,51 @@ body {
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    color: white;
-    width: 30%;
+    width: 26%;
     height: 30vh;
     margin: 2%;
-    background-color: black;
-    /* border: 3px solid yellow; */
-}
-
-.social .box img {
-    width: 150px;
-    align-self: center;
-}
-
-.boxes .box img {
-    width: 100%;
-    border-width: 20px;
+    background-image: url(../img/yokai.jpg);
+    background-size: 100%;
     border: solid;
     border-style: solid;
-    border-color: #301d53;
+    border-color: #adadad;
+}
+
+.social .boxes :hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    background-image: url(../img/yokai.jpg);
+}
+
+
+/*social fim*/
+
+.colabore {
+    background-image: url(../img/img1.webp);
+    background-repeat: no-repeat;
+}
+
+.colabore .boxes1 {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.colabore .box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 50%;
+    height: 30vh;
+    margin: 2%;
+    background-size: 100%;
+}
+
+.boxes1 .box p {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
 }
