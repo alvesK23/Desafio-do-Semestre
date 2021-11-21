@@ -237,7 +237,6 @@ body {
     background-image: url(../img/yokai.jpg);
 }
 
-<<<<<<< HEAD
 
 /*social fim*/
 
@@ -268,24 +267,4 @@ body {
     display: flex;
     justify-content: center;
     font-weight: 400;
-=======
-.boxes .box img {
-    width: 100%;
-    border-width: 20px;
-    border: solid;
-    border-style: solid;
-    border-color: #301d53;
-}
-.container_inove {
-    background-color: #e5e5e5;
-    /* border: 3px solid yellowgreen; */
-    padding: 50px 0;
-}
-
-.container_inove .container {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    /* border: 3px solid blue; */
->>>>>>> 77546a6f7586ed3656f49d5344bf6cbde8faba91
 }
