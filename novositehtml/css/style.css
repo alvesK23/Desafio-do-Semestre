@@ -226,6 +226,23 @@ body {
     background-image: url(../img/yokai.jpg);
     background-size: 100%;
     border: solid;
+    border-radius: 18px;
+    border-style: solid;
+    border-color: #adadad;
+}
+.social .box2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 26%;
+    height: 30vh;
+    margin: 2%;
+    background-image: url(../img/esperando.jpg);
+    background-size: 100%;
+    border: solid;
+    border-radius: 18px;
     border-style: solid;
     border-color: #adadad;
 }
@@ -235,6 +252,9 @@ body {
     -ms-transform: scale(1.1);
     transform: scale(1.1);
     background-image: url(../img/yokai.jpg);
+    
+
+    
 }
 
 
@@ -243,6 +263,7 @@ body {
 .colabore {
     background-image: url(../img/img1.webp);
     background-repeat: no-repeat;
+    background-position-y: 8%;
 }
 
 .colabore .boxes1 {
@@ -268,3 +289,20 @@ body {
     justify-content: center;
     font-weight: 400;
 }
+.box  img{
+
+    width: 50%;
+    display: flex;
+    align-self: center;
+
+}
+
+
+
+.footer {
+    background-color: #29193e;
+
+}
+
+
+
