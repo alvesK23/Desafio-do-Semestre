@@ -230,6 +230,7 @@ body {
     border-style: solid;
     border-color: #adadad;
 }
+
 .social .box2 {
     display: flex;
     flex-wrap: wrap;
@@ -251,10 +252,6 @@ body {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
-    background-image: url(../img/yokai.jpg);
-    
-
-    
 }
 
 
@@ -289,20 +286,283 @@ body {
     justify-content: center;
     font-weight: 400;
 }
-.box  img{
 
+.box img {
     width: 50%;
     display: flex;
     align-self: center;
-
 }
-
-
 
 .footer {
     background-color: #29193e;
+    display: flex;
+    justify-content: center;
+}
 
+.footer p {
+    color: white;
+    white-space: pre;
+}
+
+.footer .container1 {
+    color: white;
+    display: flexbox;
+    margin-top: 2%;
+}
+
+.footer .container1 .imgs {
+    display: flexbox;
+    margin-left: 27%;
+}
+
+.footer .container1 img {
+    width: 15%;
+    margin: 1%;
+}
+
+.footer .container1 img:hover {
+    width: 20%;
+    margin: 2%;
 }
 
 
+/*modal cadastro*/
 
+.cadastromodel {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.cadastromodel:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: white;
+    border-width: 30px;
+    border: solid;
+    border-radius: 5px;
+    width: 40%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    color: black;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.popup .close:hover {
+    color: #06D85F;
+}
+
+.popup .content {
+    display: flex;
+    justify-content: center;
+    max-height: 30%;
+    overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .box {
+        width: 70%;
+    }
+    .popup {
+        width: 70%;
+    }
+}
+
+
+/*fim modal cadastro*/
+
+
+/*inputs jeito*/
+
+fieldset {
+    border: none;
+}
+
+fieldset:nth-child(1) {
+    display: flex;
+}
+
+fieldset:nth-child(2) {
+    display: flex;
+}
+
+fieldset:nth-child(3) {
+    display: flex;
+}
+
+fieldset:nth-child(4) {
+    display: flex;
+}
+
+.form-v-001 {
+    outline: none;
+    width: 40%;
+    height: 4vh;
+    margin: 2%;
+    border-radius: 18px;
+    border: solid;
+    border-color: #29193e;
+    border-width: 2px;
+    border-style: solid;
+    background-color: #ededed;
+    color: #29193e;
+    font-size: 16px;
+}
+
+.form-v-001:hover {
+    border-color: #e3b062;
+}
+
+#combobox {
+    width: 42.5%;
+    height: 4.6vh;
+}
+
+
+/*fim inputs*/
+
+.check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8%;
+}
+
+.check span {
+    font-weight: 600;
+}
+
+.check a {
+    color: #02365d;
+}
+
+.btncadastro {
+    cursor: pointer;
+    margin-left: 60px;
+    display: block;
+    width: 20vw;
+    height: 7vh;
+    color: #FFFF;
+    background-color: #02365d;
+    border-style: solid;
+    border-radius: 10px;
+    margin-top: 3%;
+}
+
+.btncadastro:hover {
+    background-color: #F09C33;
+}
+
+.loading-div {
+    width: 50px;
+    /* border: 3px solid pink; */
+    margin: auto;
+    display: none;
+}
+
+.loading-div img {
+    height: 50px;
+    width: 50px;
+}
+
+
+/*modal login*/
+
+.loginmodel {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.loginmodel:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: white;
+    border-width: 30px;
+    border: solid;
+    border-radius: 5px;
+    width: 40%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    color: black;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.popup .close:hover {
+    color: #06D85F;
+}
+
+.popup .content {
+    display: flex;
+    justify-content: center;
+    max-height: 30%;
+    overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .box {
+        width: 70%;
+    }
+    .popup {
+        width: 70%;
+    }
+}
+
+
+/*fim modal login*/

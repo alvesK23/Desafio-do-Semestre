@@ -5,77 +5,237 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMusic</title>
-    <link rel="stylesheet" href="./css/stylee.css">
-    <link rel="shortcut icon" href="./img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="shortcut icon" href="./assets/img/icon.png" type="image/x-icon">
     <script src="./js/funcoes.js"></script>
+    <script src="./js/entrar.js"></script>
+    <title>Group Music</title>
 </head>
 
 <body>
-    <div class="banner">
-        <div class="navbar">
-            <span>BMusic</span>
+    <div class="background">
+        <div class="header">
+            <div class="container">
+                <img src="./assets/img/logo3.png">
 
-            <ul>
-                <li><a>Sobre</a></li>
-                <li><a href="#suporte">Suporte</a></li>
-                <li><a href="#popup1">Sociais</a></li>
-            </ul>
-            <button class="cadastro"><a href="./cadastro.html">cadastro</a></button>
-            <button class="login"><a href="./login.html">Login</a></button>
+                <ul class="navbar">
+                    <li class="agora">Inicial</li>
+
+                    <li>
+                        <a href="#sobre">Sobre</a>
+                    </li>
+
+                    <li>
+                        <button onclick="window.location.href ='index.html#loginmodel'" class="login"> Login</button>
+                    </li>
+
+                    <li>
+                        <a href="#cadastromodel"> <button class="cadastro">   Cadastro</button></a>
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <div id="popup1" class="overlay">
+
+        <div class="banner">
+            <div class="container">
+                <p class="fala">
+                    Continue! Tudo o que você precisa chegará até você no momento certo..!
+
+                </p><br>
+                <button onclick="window.location.href ='index.html#cadastromodel'" id="button">Inscreva-se</button>
+
+            </div>
+
+        </div>
+
+        <div id="cadastromodel" class="cadastromodel">
             <div class="popup">
-                <h2>Redes sociais</h2>
-                <a class="close" href="#">&times;</a>
+                <h2>Faça seu cadastro :)</h2>
                 <div class="content">
-                    <a href="http://facebook.com/"><img src="./img/face.png"></a>
-                    <a href="https://www.instagram.com/"><img src="./img/insta-icon.png"></a>
-                    <a href="https://www.youtube.com/"><img src="./img/you.png"></a>
-                    <a href="https://twitter.com/"><img src="./img/tw.png"></a>
+                    <section>
+                        <fieldset>
+
+                            <input class="form-v-001" id="Inpu_nome" placeholder="Nome">
+                            <input class="form-v-001" id="Inpu_apelido" placeholder="Apelido">
+                        </fieldset>
+                        <fieldset>
+                            <input class="form-v-001" id="Inpu_usuario" placeholder="Usuário">
+                            <input class="form-v-001" id="Inpu_senha" placeholder="Senha">
+                        </fieldset>
+                        <fieldset>
+                            <input class="form-v-001" id="Inpu_email" placeholder="E-mail">
+                            <input class="form-v-001" id="Inpu_cep" onkeyup="consulta()" maxlength="8" placeholder="Cep">
+                        </fieldset>
+                        <fieldset>
+                            <input class="form-v-001" id="Inpu_idade" placeholder="Sua Idade">
+                            <select id="combobox" class="form-v-001">
+                                <option>Gênero musical</option>
+                                <option>Funk</option>
+                                <option>Samba</option>
+                                <option>Forro</option>
+                                <option>Trap</option>
+                                <option>Rap</option>
+                                <option>Eletrônica</option>
+                                
+                                </select>
+                        </fieldset>
+
+
+
+                        <button class="btncadastro" onclick="cadastrar()" id="btncadastrar">Cadastrar</button>
+                        <div id="div_aguardar" class="loading-div">
+                            <img src="./assets/img/circle-loading.gif" id="loading-gif">
+                        </div>
+                        <div id="div_erros_login"></div>
+                    </section>
+                </div>
+                <a class="close" href="#">&times;</a>
+            </div>
+        </div>
+
+        <div id="loginmodel" class="loginmodel">
+            <div class="popup">
+                <h2>Entrar</h2>
+                <div class="content">
+                    <section>
+                        <fieldset>
+
+                            <input class="form-v-001" id="usuario_input" placeholder="Usuario">
+                            <input class="form-v-001" id="senha_input" placeholder="senha">
+                        </fieldset>
+                        <button class="btncadastro" onclick="entrar()">Entrar</button>
+
+
+                    </section>
+                </div>
+                <a class="close" href="#">&times;</a>
+            </div>
+
+        </div>
+
+    </div>
+    <div id="div_aguardar" class="loading-div">
+        <img src="./assets/circle-loading.gif" id="loading-gif"></div>
+    <div id="div_erros_login"></div>
+
+    <div class="colabore">
+        <div class="container1">
+
+
+            <div class="boxes1">
+                <div class="box">
+                    <p>Faça barulho, explore um novo som, componha uma música ou colabore com outras pessoas. Conheça um coletivo de criadores que amam o que fazem. Não importa se você já é profissional ou se está apenas começando: aqui é seu lugar.</p>
+                </div>
+
+            </div>
+        </div>
+        <br>
+
+    </div>
+
+
+    <div class="social">
+
+        <div class="container" id="social">
+
+            <div class="titulo">
+                <h2 class="melhores">Os melhores artistas parceiros de nossa comunidade:</h2>
+            </div>
+            <div class="boxes">
+                <div class="box">
+                    <img id="player" src="./assets/img/player.png">
+                </div>
+                <div class="box2">
 
                 </div>
             </div>
         </div>
 
-        <div id="suporte" class="suporte">
-            <div class="popup">
-                <h2>#Breve!</h2>
-                <div class="content">
-                    Implementação em construção. favor contate-nos via redes sociais.
-                </div>
-                <a class="close" href="#">&times;</a>
-
-            </div>
-        </div>
 
     </div>
-
-    <div class="container">
-        <p>Os melhores artistas parceiros de nossa comunidade:</p>
-        <div class="contai">
-            <div class="container_descricao">Cassio(Yokai) - Congelado</div>
-            <img src="./img/yokai.jpg">
-        </div>
-
-        <div class="contai">
-            <div class="container_descricao">Futura estreia #2</div>
-            <img src="./img/bk2.jpg">
-        </div>
-        <div class="contai">
-            <div class="container_descricao">Futura estreia #3</div>
-            <img src="./img/bk2.jpg">
-        </div>
-    </div>
-
-
 
 
     <div class="footer">
+        <div class="container1">
+            <div class="imgs">
+                <img src="https://static.soundtrap.com/public/images/facebook.svg">
+                <img src="https://static.soundtrap.com/public/images/twitter.svg">
+                <img src="https://static.soundtrap.com/public/images/youtube_1.webp">
+                <img src="https://static.soundtrap.com/public/images/instagram_1.webp">
 
-        <p> desenvolvido em 2021 &copy; BMusc Direitos reservados.</p>
+            </div>
+            <p>©2021 Group Music By SPTech School</p>
+        </div>
+
     </div>
+
+
 </body>
 
 </html>
+<script src="./js/entrar.js"></script>
+<script>
+    function typeWriter(elemento) {
+
+        const textoArray = elemento.innerHTML.split('');
+        elemento.innerHTML = '';
+
+        for (let i = 0; i < textoArray.length; i++) {
+            setTimeout(() => elemento.innerHTML += textoArray[i], 75 * i);
+
+        }
+
+    }
+    const titulo = document.querySelector('.fala');
+    const titulo2 = document.querySelector('.melhores');
+    const titulo3 = document.querySelector('#button');
+
+    typeWriter(titulo);
+    typeWriter(titulo2);
+    typeWriter(titulo3);
+
+    // 2. This code loads the IFrame Player API code asynchronously.
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
+    var player;
+
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            height: '360',
+            width: '100%',
+            videoId: 'ld2Yp6ERsrQ',
+            events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+            }
+        });
+    }
+
+    // 4. The API will call this function when the video player is ready.
+    function onPlayerReady(event) {
+        event.target.playVideo();
+    }
+
+    // 5. The API calls this function when the player's state changes.
+    //    The function indicates that when playing a video (state=1),
+    //    the player should play for six seconds and then stop.
+    var done = false;
+
+    function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+            setTimeout(stopVideo, 6000);
+            done = true;
+        }
+    }
+
+    function stopVideo() {
+        player.stopVideo();
+    }
+</script>

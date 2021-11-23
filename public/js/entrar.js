@@ -1,64 +1,65 @@
- function limparFormulario() {
-     document.getElementById("form_login").reset();
- }
+function limparFormulario() {
+    document.getElementById("form_login").reset();
+}
 
- function entrar() {
-     aguardar();
+function entrar() {
+    aguardar();
 
-     var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));
+    var usuarioVar = usuario_input.value;
+    var senhaVar = senha_input.value;
 
-     var usuario = formulario.get("usuario");
-     var senha = formulario.get("senha");
-
-     console.log("FORM LOGIN: ", usuario);
-     console.log("FORM SENHA: ", senha);
-
-     // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
-     if (usuario == "" || senha == "") {
-         window.alert("Preencha todos os campos para prosseguir!");
-         finalizarAguardar();
-         return false;
-     }
+    // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+    if (usuarioVar == "" || senhaVar == "") {
+        window.alert("Preencha todos os campos para prosseguir!");
+        finalizarAguardar();
+        return false;
+    }
 
 
 
-     fetch("/usuarios/autenticar", {
-         method: "POST",
-         body: formulario
-     }).then(function(resposta) {
-         console.log("ESTOU NO THEN DO entrar()!")
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            usuario: usuarioVar,
+            senha: senhaVar,
+        })
+    }).then(function(resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
 
-         if (resposta.ok) {
-             console.log(resposta);
+        if (resposta.ok) {
+            console.log(resposta);
 
-             resposta.json().then(json => {
-                 console.log(json);
-                 console.log(JSON.stringify(json));
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
 
-                 sessionStorage.USUARIO_USUARIO = json.usuario;
-                 sessionStorage.APELIDO_USUARIO = json.apelido;
-                 sessionStorage.ID_USUARIO = json.idusuario;
-                 sessionStorage.FOTOPERFIL_USUARIO = json.fotoperfil;
+                sessionStorage.USUARIO_USUARIO = json.usuario;
+                sessionStorage.APELIDO_USUARIO = json.apelido;
+                sessionStorage.ID_USUARIO = json.idusuario;
+                sessionStorage.FOTOPERFIL_USUARIO = json.fotoperfil;
 
-                 setTimeout(function() {
-                     window.location = "./dashboard/index.html";
-                 }, 1000); // apenas para exibir o loading
+                setTimeout(function() {
+                    window.location = "./dashboard/cards.html";
+                }, 1000); // apenas para exibir o loading
 
-             });
+            });
 
-         } else {
+        } else {
 
-             console.log("Houve um erro ao tentar realizar o login!");
+            console.log("Houve um erro ao tentar realizar o login!");
 
-             resposta.text().then(texto => {
-                 console.error(texto);
-                 finalizarAguardar(texto);
-             });
-         }
+            resposta.text().then(texto => {
+                console.error(texto);
+                finalizarAguardar(texto);
+            });
+        }
 
-     }).catch(function(erro) {
-         console.log(erro);
-     })
+    }).catch(function(erro) {
+        console.log(erro);
+    })
 
-     return false;
- }
+    return false;
+}
