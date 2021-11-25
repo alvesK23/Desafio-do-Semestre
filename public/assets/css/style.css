@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,100&display=swap');
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 .background {
@@ -110,6 +112,7 @@ body {
     width: 280px;
     font-size: 36px;
     margin-left: 350px;
+    font-size: 40px;
 }
 
 .banner p::after {
@@ -129,6 +132,9 @@ body {
     border-radius: 100px;
     font-weight: 600;
     line-height: 52px;
+    margin-left: -20%;
+    margin-top: 26%;
+    font-size: 18px;
 }
 
 .banner #button:hover {
@@ -148,6 +154,7 @@ body {
     padding: 50px 0;
     background-image: url(https://static.soundtrap.com/public/images/musicmakers/img-musicmaker-collaborate-01-small_1.webp);
     background-repeat: no-repeat;
+    height: 100vh;
 }
 
 .social .container {
@@ -165,9 +172,11 @@ body {
     display: flex;
     justify-content: center;
     margin-bottom: 50px;
+    margin-left: 500px;
 }
 
 .social h2 {
+    font-size: 50px;
     display: flex;
     padding: 20px;
     background-color: transparent;
@@ -261,6 +270,7 @@ body {
     background-image: url(../img/img1.webp);
     background-repeat: no-repeat;
     background-position-y: 8%;
+    height: 100vh;
 }
 
 .colabore .boxes1 {
@@ -278,10 +288,11 @@ body {
     height: 30vh;
     margin: 2%;
     background-size: 100%;
+    margin-top: 12%;
 }
 
 .boxes1 .box p {
-    font-size: 30px;
+    font-size: 45px;
     display: flex;
     justify-content: center;
     font-weight: 400;
@@ -566,3 +577,83 @@ fieldset:nth-child(4) {
 
 
 /*fim modal login*/
+
+
+/*modal sobre*/
+
+
+/*modal login*/
+
+.sobre {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+    background-image: url(../img/img4.webp);
+    background-position-x: 200%;
+    background-repeat: no-repeat;
+}
+
+.sobre:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: white;
+    border-width: 30px;
+    border: solid;
+    border-radius: 5px;
+    width: 40%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    color: black;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.popup .close:hover {
+    color: #06D85F;
+}
+
+.popup .content {
+    display: flex;
+    justify-content: center;
+    max-height: 30%;
+    overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .box {
+        width: 70%;
+    }
+    .popup {
+        width: 70%;
+    }
+}
+
+
+/*fim modal sobre*/
