@@ -1,17 +1,44 @@
-create database bielmusic;
-use bielmusic;
-create table cadastro (
+create database Db_Groupmusic;
+use Db_Groupmusic;
+
+create tabable endereco (
+idEndereco int primary key,
+bairro varchar(200),
+localidade varchar(200),
+logradouro varchar(200),
+cep int
+);
+
+create table usuario (
 idusuario int primary key auto_increment,
 nome varchar(100),
 apelido varchar(20),
 email varchar(200),
-senha varchar(200),
 usuario varchar(200),
-cep char(8),
+senha varchar(200),
 idade int,
-preferenciaMusic varchar(50),
-criacao_conta timestamp default current_timestamp(),
-bairro varchar(300),
-localidade  varchar(200),
-fotoperfil varchar(500))auto_increment = 1;
+criacao_conta timestamp default current_timestamp()
+FkIdEndereco int,
+foreign key (FkIdEndereco) references endereco(idEndereco)
+)auto_increment = 1000;
 
+create table FotoPerfil(
+idfotoPerfil int primary key auto_increment,
+FkIdcadastro int,
+foreign key (FkIdcadastro) references usuario(idusuario)
+Link_FtSalva varchar(2000));
+
+
+
+create table preferenciaMusic (
+idpreferenciaMusic int,
+GeneroMusical varchar(200),
+primary key (idpreferenciaMusic , GeneroMusical),
+FkIdusuario int,
+foreign key (FkIdusuario) references usuario(idusuario)
+);
+
+create table Musicas (
+FkGeneroMusic int primary key,
+foreign key (FkGeneroMusic) references preferenciaMusic(idpreferenciaMusic)
+codMusica varchar(400));

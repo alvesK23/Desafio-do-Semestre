@@ -1,0 +1,12 @@
+O Usuario faz o cadastro Informando seus dados 
+que por sinal alguns deles se separam em outras tabelas , por quê:?
+
+Um Usuario pode ter 1 e apenas um endereço , sabendo disso foi separado 
+uma tabela para usuario (que poderá ter acrescentamentos de informações em 
+uma possível atualização de sistema breve.)
+
+Um Usuario pode ter uma ou mais fotos de perfil, como assim?
+bom ele poderá inserir mais de uma fot ode perfil, onde pode 
+ficar sendo guardado suas respectivas fotos.
+
+Um usuario terá um genero e apenas um  de musica 
