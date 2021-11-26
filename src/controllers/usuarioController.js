@@ -87,15 +87,16 @@ function entrar(req, res) {
 function cadastrar(req, res) {
     var nome = req.body.nome;
     var apelido = req.body.apelido;
-    var email = req.body.email;
-    var senha = req.body.senha;
     var usuario = req.body.usuario;
-    var cep = req.body.cep;
+    var senha = req.body.senha;
+    var email = req.body.email;
     var idade = req.body.idade;
-    var prefe = req.body.prefe;
+    var cep = req.body.cep;
+    var logradouro = req.body.logradouro;
     var bairro = req.body.bairro;
     var localidade = req.body.localidade;
-    var fotoon = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png";
+
+
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (usuario == undefined) {
@@ -103,7 +104,7 @@ function cadastrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else {
-        usuarioModel.cadastrar(nome, apelido, email, senha, usuario, cep, idade, prefe, bairro, localidade, fotoon)
+        usuarioModel.cadastrar(nome, apelido, email, usuario, senha, idade, cep, logradouro, bairro, localidade)
             .then(
                 function(resultado) {
                     res.json(resultado);

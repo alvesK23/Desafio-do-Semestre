@@ -6,6 +6,7 @@
   var cepVar;
   var localVar;
   var bairroVar;
+  var logradouroVar;
 
   function consulta() {
       cepVar = Inpu_cep.value;
@@ -19,6 +20,7 @@
               console.log(data)
               localVar = data.localidade;
               bairroVar = data.bairro;
+              logradouroVar = data.logradouro;
           })
           console.log(resposta)
       }).catch(function(erro) {
@@ -41,58 +43,7 @@
       var idadeVar = Inpu_idade.value;
       var prefeVar = Inpu_prefe.value;
 
-      // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
-      if (nomeVar == "" || apelidoVar == "" || emailVar == "" || senhaVar == "" || usuarioVar == "" || cepVar == "" || idadeVar == "" || prefeVar == "") {
-
-          window.alert("Preencha todos os campos para prosseguir!");
-          if (nomeVar == "") {
-              console.log('nome está em branco')
-          }
-          if (apelidoVar == "") {
-              console.log('apelido está em branco')
-          }
-          if (emailVar == "") {
-              console.log('email está em branco')
-          }
-          if (senhaVar == "") {
-              console.log('senha está em branco')
-          }
-          if (cepVar == "") {
-              console.log('cep está em branco')
-          }
-          if (idadeVar == "") {
-              console.log('idade está em branco')
-          }
-          if (prefeVar == "") {
-              console.log('preferencia está em branco')
-          }
-
-          finalizarAguardar();
-          return false;
-      }
-
-      if (emailVar.indexOf("@gmail.com") == -1 & emailVar.indexOf("@yahoo.com") == -1 & emailVar.indexOf("@hotmail.com") == -1 & emailVar.indexOf("@bandtec.com") == -1) {
-          window.alert("Ops, e-mail inválido ,lembre-se de informar um e-mail das paltaformas: google,yahoo,hotmail,bandtec. Verifique e tente novamente.");
-          finalizarAguardar();
-          return false;
-      }
-      if (cepVar.length <= 7 || cepVar.length >= 9) {
-          window.alert("cep é composto por 8 Digitos!, informe um cep válido!");
-          finalizarAguardar();
-          return false;
-      }
-      if (idadeVar < 7) {
-          window.alert("Você deve ter pelo menos 7 anos !");
-          finalizarAguardar();
-          return false;
-      }
-
-      if (apelidoVar == senhaVar) {
-          window.alert("Seu Apelido não pode ser igual a sua senha!");
-          finalizarAguardar();
-          return false;
-      }
-
+      // aqui fica as validações//
 
 
       fetch("/usuarios/cadastrar", {
@@ -111,6 +62,7 @@
               prefe: prefeVar,
               bairro: bairroVar,
               localidade: localVar,
+              logradouro: logradouroVar,
           })
       }).then(function(resposta) {
 

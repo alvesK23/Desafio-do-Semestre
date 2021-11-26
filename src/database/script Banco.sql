@@ -4,7 +4,7 @@ create database Db_Groupmusic;
 use Db_Groupmusic;
 
 create table endereco (
-idEndereco int primary key,
+idEndereco int primary key auto_increment,
 bairro varchar(200),
 localidade varchar(200),
 logradouro varchar(200),
@@ -31,7 +31,7 @@ Link_FtSalva varchar(2000));
 
 
 create table preferenciaMusic (
-idpreferenciaMusic int,
+idpreferenciaMusic int ,
 GeneroMusical varchar(200),
 primary key (idpreferenciaMusic , FkIdusuario),
 FkIdusuario int ,
