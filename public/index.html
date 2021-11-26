@@ -56,28 +56,31 @@
                     <section>
                         <fieldset>
 
-                            <input class="form-v-001" id="Inpu_nome" placeholder="Nome">
-                            <input class="form-v-001" id="Inpu_apelido" placeholder="Apelido">
+                            &nbsp;&nbsp;&nbsp;
+                            <p>Nome:</p> <input class="form-v-001" id="Inpu_nome" placeholder="Nome">
+                            <p>Apelido:</p> <input class="form-v-001" id="Inpu_apelido" placeholder="Apelido">
                         </fieldset>
                         <fieldset>
-                            <input class="form-v-001" id="Inpu_usuario" placeholder="Usuário">
-                            <input class="form-v-001" id="Inpu_senha" placeholder="Senha">
+                            <p>Usuario:</p> <input class="form-v-001" id="Inpu_usuario" placeholder="Usuário">&nbsp;&nbsp;
+                            <p>Senha:</p> <input class="form-v-001" id="Inpu_senha" placeholder="Senha">
                         </fieldset>
                         <fieldset>
-                            <input class="form-v-001" id="Inpu_email" placeholder="E-mail">
-                            <input class="form-v-001" id="Inpu_cep" onkeyup="consulta()" maxlength="8" placeholder="Cep">
+                            &nbsp; &nbsp;&nbsp;&nbsp;
+                            <p>Email:</p> <input class="form-v-001" id="Inpu_email" placeholder="E-mail"> &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
+                            <p>CEP:</p> <input class="form-v-001" id="Inpu_cep" onkeyup="consulta()" maxlength="8" placeholder="Cep">&nbsp;
                         </fieldset>
                         <fieldset>
-                            <input class="form-v-001" id="Inpu_idade" placeholder="Sua Idade">
-                            <select id="combobox" class="form-v-001">
-                                <option>Gênero musical</option>
-                                <option>Funk</option>
-                                <option>Samba</option>
-                                <option>Forro</option>
-                                <option>Trap</option>
-                                <option>Rap</option>
-                                <option>Eletrônica</option>
-                                
+                            &nbsp;&nbsp;&nbsp; &nbsp;
+                            <p>Nasc:</p><input class="form-v-001" type="date" id="Inpu_idade" placeholder="Sua Idade">
+                            <p>Preferência:</p>
+                            <select id="Inpu_prefe" class="form-v-001">
+                                <option value="selecione">Gênero musical</option>
+                                <option value="funk">Funk</option>
+                                <option value="samba">Samba</option>
+                                <option value="forro">Forro</option>
+                                <option value="trap">Trap</option>
+                                <option value="rap">Rap</option>
+                                <option value="eletronica">Eletrônica</option>
                                 </select>
                         </fieldset>
 
@@ -187,6 +190,7 @@
 
 </html>
 <script src="./js/entrar.js"></script>
+<script src="./js/cadastrar.js"></script>
 <script>
     function typeWriter(elemento) {
 
