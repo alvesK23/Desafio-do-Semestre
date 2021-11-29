@@ -98,21 +98,8 @@ function cadastrar(req, res) {
     var localidade = req.body.localidade;
     var fotopadrao = "https://codigosdebarrasbrasil.com.br/wp-content/uploads/2018/02/foto-de-perfil.png";
     var generoM = req.body.generoM;
-    var iddapreferencia = 1;
 
-    if (generoM == "funk") {
-        iddapreferencia = 1;
-    } else if (generoM == "samba") {
-        iddapreferencia = 2;
-    } else if (generoM == "forro") {
-        iddapreferencia = 3;
-    } else if (generoM == "trap") {
-        iddapreferencia = 4;
-    } else if (generoM == "rap") {
-        iddapreferencia = 5;
-    } else if (generoM == "eletronica") {
-        iddapreferencia = 6;
-    }
+    
 
 
     if (nome == undefined) {
@@ -122,7 +109,7 @@ function cadastrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else {
-        usuarioModel.cadastrar(nome, apelido, email, usuario, senha, idade, cep, logradouro, bairro, localidade, fotopadrao, generoM, iddapreferencia)
+        usuarioModel.cadastrar(nome, apelido, email, usuario, senha, idade,fotopadrao,bairro, localidade, logradouro, cep, generoM)
             .then(
                 function(resultado) {
                     res.json(resultado);
@@ -140,7 +127,26 @@ function cadastrar(req, res) {
     }
 }
 
+function buscarUltimasMedidas(req, res) {
 
+    const limite_linhas = 7;
+
+    var idAquario = req.params.idAquario;
+
+    console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
+
+    usuarioModel.buscarUltimasMedidas(idAquario, limite_linhas).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
 
 
 
@@ -150,6 +156,7 @@ module.exports = {
     cadastrar,
     listar,
     testar,
-    fotoo
-
+    fotoo,
+    usuarioModel
+//
 }

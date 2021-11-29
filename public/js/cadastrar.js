@@ -69,9 +69,7 @@
           }
 
 
-          finalizarAguardar();
-          return false;
-      }
+     
 
       if (emailVar.indexOf("@gmail.com") == -1 & emailVar.indexOf("@yahoo.com") == -1 & emailVar.indexOf("@hotmail.com") == -1 & emailVar.indexOf("@bandtec.com") == -1) {
           window.alert("Ops, e-mail inválido ,lembre-se de informar um e-mail das paltaformas: google,yahoo,hotmail,bandtec. Verifique e tente novamente.");
@@ -90,8 +88,12 @@
           finalizarAguardar();
           return false;
       }
+   
 
-
+    finalizarAguardar();
+    return false;
+}
+      
 
       // fim validações //
 

@@ -19,49 +19,39 @@ function entrar(usuario, senha) {
     return database.executar(instrucao);
 }
 
-function cadastrar(nome, apelido, email, usuario, senha, idade, cep, logradouro, bairro, localidade, fotopadrao, generoM, iddapreferencia) {
+
+function cadastrar(nome, apelido, email, usuario, senha, idade,fotopadrao,bairro, localidade, logradouro, cep, generoM) {
     var instrucao = `
-        INSERT INTO endereco (bairro, localidade, logradouro, cep) 
-        VALUES ('${bairro}', '${localidade}', '${logradouro}', '${cep}');`
-
-    tableusuario(nome, apelido, email, usuario, senha, idade, cep, fotopadrao, generoM, iddapreferencia)
-
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
-
-function tableusuario(nome, apelido, email, usuario, senha, idade, cep, fotopadrao, generoM, iddapreferencia) {
-    var instrucao = `
-        INSERT INTO usuario (nome, apelido, email, usuario, senha, Nascimento, fotoperfil, FkIdEndereco) 
-        VALUES ('${nome}', '${apelido}', '${email}', '${usuario}', '${senha}', '${idade}', '${fotopadrao}',
-        (select idEndereco from endereco ORDER BY idEndereco DESC LIMIT 1));
-    `;
-    preferencia(generoM, iddapreferencia)
-
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
-
-function preferencia(generoM, iddapreferencia) {
-    var instrucao = `
-        INSERT INTO preferenciamusic (idpreferenciaMusic, GeneroMusical, FkIdusuario) 
-        VALUES (${iddapreferencia},'${generoM}', (select idusuario from usuario  ORDER BY idusuario DESC LIMIT 1));
+        INSERT INTO usuario (nome, apelido, email, usuario, senha, Nascimento, fotoperfil,bairro,localidade,logradouro,cep,Fkpreferencia) 
+        VALUES ('${nome}', '${apelido}', '${email}', '${usuario}', '${senha}', '${idade}', '${fotopadrao}' , '${bairro}', '${localidade}','${logradouro}', '${cep}',
+        (select id from preferenciaMusic where GeneroMusical = '${generoM}'));
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
-
-
 
 function fotoo(foto, ID) {
 
-    var instrucao = `UPDATE usuario set fotoperfil='${foto}' where idusuario = ${ID}`;
+    var instrucao = `UPDATE usuario set fotoperfil='${foto}' where id = ${ID}`;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
 
+function litsar(){
+    var instrucao = `select count(GeneroMusical),GeneroMusical 
+from usuario join preferenciaMusic on Fkpreferencia = preferenciaMusic.id group by GeneroMusical;
+`;
+return database.executar(instrucao);
+}
+
+function buscarUltimasMedidas(idAquario, limite_linhas) {
+    instrucaoSql = `select count(GeneroMusical),GeneroMusical 
+    from usuario join preferenciaMusic on Fkpreferencia = preferenciaMusic.id group by GeneroMusical;`;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
 
 module.exports = {
@@ -69,5 +59,6 @@ module.exports = {
     cadastrar,
     listar,
     fotoo,
-
+    listar,
+    buscarUltimasMedidas
 };
