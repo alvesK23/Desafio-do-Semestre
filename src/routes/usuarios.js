@@ -22,8 +22,8 @@ router.post("/autenticar", function(req, res) {
 router.post("/fotografo", function(req, res) {
     usuarioController.fotoo(req, res);
 });
-router.get("/ultimas/:idAquario", function (req, res) {
-    usuarioController.buscarUltimasMedidas(req, res);
+router.get("/grafico", function(req, res) {
+    usuarioController.grafrics(req, res);
 });
 
 module.exports = router;

@@ -99,7 +99,7 @@ function cadastrar(req, res) {
     var fotopadrao = "https://codigosdebarrasbrasil.com.br/wp-content/uploads/2018/02/foto-de-perfil.png";
     var generoM = req.body.generoM;
 
-    
+
 
 
     if (nome == undefined) {
@@ -109,7 +109,7 @@ function cadastrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else {
-        usuarioModel.cadastrar(nome, apelido, email, usuario, senha, idade,fotopadrao,bairro, localidade, logradouro, cep, generoM)
+        usuarioModel.cadastrar(nome, apelido, email, usuario, senha, idade, fotopadrao, bairro, localidade, logradouro, cep, generoM)
             .then(
                 function(resultado) {
                     res.json(resultado);
@@ -127,25 +127,21 @@ function cadastrar(req, res) {
     }
 }
 
-function buscarUltimasMedidas(req, res) {
-
-    const limite_linhas = 7;
-
-    var idAquario = req.params.idAquario;
-
-    console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
-
-    usuarioModel.buscarUltimasMedidas(idAquario, limite_linhas).then(function (resultado) {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!")
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-    });
+function grafrics(req, res) {
+    usuarioModel.grafrics()
+        .then(function(resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function(erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
 }
 
 
@@ -157,6 +153,6 @@ module.exports = {
     listar,
     testar,
     fotoo,
-    usuarioModel
-//
+    grafrics
+    //
 }

@@ -20,7 +20,7 @@ function entrar(usuario, senha) {
 }
 
 
-function cadastrar(nome, apelido, email, usuario, senha, idade,fotopadrao,bairro, localidade, logradouro, cep, generoM) {
+function cadastrar(nome, apelido, email, usuario, senha, idade, fotopadrao, bairro, localidade, logradouro, cep, generoM) {
     var instrucao = `
         INSERT INTO usuario (nome, apelido, email, usuario, senha, Nascimento, fotoperfil,bairro,localidade,logradouro,cep,Fkpreferencia) 
         VALUES ('${nome}', '${apelido}', '${email}', '${usuario}', '${senha}', '${idade}', '${fotopadrao}' , '${bairro}', '${localidade}','${logradouro}', '${cep}',
@@ -39,19 +39,20 @@ function fotoo(foto, ID) {
 }
 
 
-function litsar(){
+function litsar() {
     var instrucao = `select count(GeneroMusical),GeneroMusical 
 from usuario join preferenciaMusic on Fkpreferencia = preferenciaMusic.id group by GeneroMusical;
 `;
-return database.executar(instrucao);
+    return database.executar(instrucao);
 }
 
-function buscarUltimasMedidas(idAquario, limite_linhas) {
-    instrucaoSql = `select count(GeneroMusical),GeneroMusical 
-    from usuario join preferenciaMusic on Fkpreferencia = preferenciaMusic.id group by GeneroMusical;`;
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
+function grafrics() {
+    instrucao = `select count(GeneroMusical) as quantia, a.GeneroMusical from usuario as u 
+    join preferenciamusic as a where u.Fkpreferencia = a.id group by a.GeneroMusical;`;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
 }
+
 
 
 module.exports = {
@@ -59,6 +60,5 @@ module.exports = {
     cadastrar,
     listar,
     fotoo,
-    listar,
-    buscarUltimasMedidas
+    grafrics
 };
