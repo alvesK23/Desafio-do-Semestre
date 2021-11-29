@@ -42,7 +42,7 @@ function entrar() {
                 sessionStorage.FOTOPERFIL_USUARIO = json.fotoperfil;
 
                 setTimeout(function() {
-                    window.location = "./dashboard/cards.html";
+                    window.location = "./dashboard/login.html";
                 }, 1000); // apenas para exibir o loading
 
             });

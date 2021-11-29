@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../dashboard/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/funcoes.js"></script>
+
+    <link rel="shortcut icon" href="../assets/img/icon.png" type="image/x-icon">
+    <title>Group Music</title>
+</head>
+
+<body onload="validarSessao()">
+    <div class="navebar">
+        <ul>
+
+            <li>
+                <a href="#simulaçao">Simulador de Dom</a>
+            </li>
+            <li><a href="#novidades">Novidades</a> </li>
+
+            <span onclick="limparSessao()"><button title="sair" class="sair">Sair</button></span>
+
+        </ul>
+
+    </div>
+    <div id="modalfoto" class="modalfoto">
+        <div class="popup">
+
+            <div class="content">
+
+                Altere sua Foto:&nbsp;
+                <input class="insfoto" id="input_foto" placeholder="Insira o link da sua foto aqui"> &nbsp;
+                <button class="btninserir" onclick="fotinha()">alterar foto</button>
+
+
+            </div>
+            <a class="close" href="#">&times;</a>
+        </div>
+
+    </div>
+
+
+    <div id="simulaçao" class="simulaçao">
+        <div class="popup">
+            <h2>Faça seu calculo</h2>
+            <div class="content">
+
+                <p>
+                    Você já ouviu falar na teoria das 10.000 horas? Em 1993, um professor da Universidade de Colorado chamado Anders Ericsson publicou uma pesquisa que causou barulho no mundo acadêmico. Ele acompanhou vários estudantes de violino, desde a infância até o
+                    final da adolescência, para descobrir o que diferenciava os músicos extraordinários dos medianos. Ao final do estudo, Ericsson constatou que os violinistas mais talentosos eram aqueles que haviam praticado uma média de 10.000 horas,
+                    enquanto os que exibiam a menor dose de talento eram os que praticaram somente 4.000 horas ao todo.
+                </p><br>
+
+
+
+            </div>
+            <h2>Sabendo disso vamos ao calculo:</h2>
+            <p>Você prática quantas Horas?: <input class="inpuhoras" placeholder="Horas /p Dia" id="inpu_horasdia"></p>
+            <p><span id="simuladormsg"></span></p>
+            <p><span id="simuladormsg2"></span></p>
+            <button onclick="calcular()" class="calculosimulador">Calcular</button>
+
+            <a class="close" href="#">&times;</a>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="painel">
+
+        <div id="foto_id">
+            <img onclick="window.location.href='#modalfoto' " src="../dashboard/img/foto.png">
+        </div>
+
+
+        <div class="nick ">
+
+            <h1><span id="b_usuario">Seu Nome</span></h1>
+        </div>
+
+        <button onclick="window.location.href='login.html' " class="button ">Inicio</button>
+        <button class="button " onclick="clikcar() ">Perfil</button>
+        <button onclick="testar()" class="button ">Postar Musica</button>
+        <button class="button ">Votar</button>
+        <button class="button ">Noticias</button>
+    </div>
+
+    <div id="graficspainel" class="container_graficos">
+        <div class="container">
+            <p>Top preferência</p>
+        </div>
+        <canvas id="myChart2" style="width: 100%; height: 100%"></canvas>
+    </div>
+
+
+
+</body>
+
+</html>
+<script src="./js/grafico2.js"></script>
+<script>
+    window.onload = function() {
+        var fotoperfilVar = sessionStorage.FOTOPERFIL_USUARIO;
+        foto_id.style.backgroundImage = "url(" + fotoperfilVar + ")";
+
+        b_usuario.innerHTML = `${sessionStorage.APELIDO_USUARIO}`;
+
+    }
+
+    function calcular() {
+        var horas = Number(inpu_horasdia.value);
+        var resultado = "";
+        if (horas => 4) {
+            resultado = "Parabéns com seu esforço você terá um futuro promissor!!";
+        }
+        if (horas => 6) {
+            resultado = "Exelente !! ,mas faça pausas , descanse e relaxe de vez enquando. a calma é amiga da perfeição e qualidade.";
+        }
+        if (horas <= 3) {
+            resultado = "você é esforçado , mas precisa de mais treino e prática";
+        }
+        simuladormsg.innerHTML = `Mediante suas ${horas}/H de treinamento por dia.<br> 
+        você treina cerca de ${horas * 7}/H por semana e ${horas * 365}/H por Ano!<br><br>
+        ${resultado}`;
+
+
+    }
+
+    function fotinha() {
+
+        var idusuarioVar = sessionStorage.ID_USUARIO;
+        var fotoperfilVar = sessionStorage.FOTOPERFIL_USUARIO;
+        var FTOvar = input_foto.value;
+        document.getElementById("foto_id").setAttribute("src", fotoperfilVar);
+
+        fetch("/usuarios/fotografo", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                foto: FTOvar,
+                ID: idusuarioVar,
+                FTO: FTOvar,
+            })
+        }).then(function(resposta) {
+
+            console.log("resposta: ", resposta);
+
+
+
+            if (resposta.ok) {
+                window.alert("Foto Cadastrada com sucesso!");
+
+                limparFormulario();
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function(resposta) {
+            console.log(`#
+        ERRO: $ {
+            resposta
+        }
+        `);
+
+        });
+
+
+    }
+</script>

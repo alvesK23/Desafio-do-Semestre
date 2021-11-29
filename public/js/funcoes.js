@@ -8,7 +8,7 @@ function validarSessao() {
     var h1LoginUsuario = document.getElementById("h1_login_usuario");
 
     if (usuario != null && apelido != null) {
-        // window.alert(`Seja bem-vindo, ${apelido}!`);
+        //window.alert(`Seja bem-vindo, ${apelido}!`);
         if (h1LoginUsuario != undefined) {
             h1LoginUsuario.innerHTML = usuario;
         }

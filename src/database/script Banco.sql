@@ -1,5 +1,3 @@
-SELECT * FROM db_groupmusic.usuario;
-
 create database Db_Groupmusic;
 use Db_Groupmusic;
 
@@ -8,8 +6,8 @@ idEndereco int primary key auto_increment,
 bairro varchar(200),
 localidade varchar(200),
 logradouro varchar(200),
-cep int
-);
+cep char(8));
+
 create table usuario (
 idusuario int primary key auto_increment,
 nome varchar(100),
@@ -19,16 +17,10 @@ usuario varchar(200),
 senha varchar(200),
 Nascimento date,
 criacao_conta timestamp default current_timestamp(),
+fotoperfil varchar(2000),
 FkIdEndereco int,
 foreign key (FkIdEndereco) references endereco(idEndereco)
 )auto_increment = 1000;
-
-create table FotoPerfil(
-idfotoPerfil int primary key auto_increment,
-FkIdcadastro int,
-foreign key (FkIdcadastro) references usuario(idusuario),
-Link_FtSalva varchar(2000));
-
 
 create table preferenciaMusic (
 idpreferenciaMusic int ,

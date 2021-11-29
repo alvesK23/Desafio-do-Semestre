@@ -492,6 +492,23 @@ fieldset:nth-child(4) {
     background-color: #F09C33;
 }
 
+.btnlogin {
+    cursor: pointer;
+    margin-left: 70px;
+    display: block;
+    width: 20vw;
+    height: 7vh;
+    color: #FFFF;
+    background-color: #02365d;
+    border-style: solid;
+    border-radius: 10px;
+    margin-top: 3%;
+}
+
+.btnlogin:hover {
+    background-color: #F09C33;
+}
+
 .loading-div {
     width: 50px;
     /* border: 3px solid pink; */

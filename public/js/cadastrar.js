@@ -33,7 +33,6 @@
 
   function cadastrar() {
       aguardar();
-
       var nomeVar = Inpu_nome.value;
       var apelidoVar = Inpu_apelido.value;
       var usuarioVar = Inpu_usuario.value;
@@ -41,10 +40,60 @@
       var emailVar = Inpu_email.value;
       var cepVar = Inpu_cep.value;
       var idadeVar = Inpu_idade.value;
-      var prefeVar = Inpu_prefe.value;
+      var escolha = combo.value;
+
 
       // aqui fica as validações//
+      // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+      if (nomeVar == "" || apelidoVar == "" || emailVar == "" ||
+          senhaVar == "" || usuarioVar == "" || cepVar == "" || idadeVar == "") {
 
+          window.alert("Preencha todos os campos para prosseguir!");
+          if (nomeVar == "") {
+              console.log('nome está em branco')
+          }
+          if (apelidoVar == "") {
+              console.log('apelido está em branco')
+          }
+          if (emailVar == "") {
+              console.log('email está em branco')
+          }
+          if (senhaVar == "") {
+              console.log('senha está em branco')
+          }
+          if (cepVar == "") {
+              console.log('cep está em branco')
+          }
+          if (idadeVar == "") {
+              console.log('idade está em branco')
+          }
+
+
+          finalizarAguardar();
+          return false;
+      }
+
+      if (emailVar.indexOf("@gmail.com") == -1 & emailVar.indexOf("@yahoo.com") == -1 & emailVar.indexOf("@hotmail.com") == -1 & emailVar.indexOf("@bandtec.com") == -1) {
+          window.alert("Ops, e-mail inválido ,lembre-se de informar um e-mail das paltaformas: google,yahoo,hotmail,bandtec. Verifique e tente novamente.");
+          finalizarAguardar();
+          return false;
+      }
+      if (cepVar.length <= 7 || cepVar.length >= 9) {
+          window.alert("cep é composto por 8 Digitos!, informe um cep válido!");
+          finalizarAguardar();
+          return false;
+      }
+
+
+      if (apelidoVar == senhaVar) {
+          window.alert("Seu Apelido não pode ser igual a sua senha!");
+          finalizarAguardar();
+          return false;
+      }
+
+
+
+      // fim validações //
 
       fetch("/usuarios/cadastrar", {
           method: "POST",
@@ -59,7 +108,7 @@
               email: emailVar,
               cep: cepVar,
               idade: idadeVar,
-              prefe: prefeVar,
+              generoM: escolha,
               bairro: bairroVar,
               localidade: localVar,
               logradouro: logradouroVar,
@@ -70,7 +119,7 @@
 
           if (resposta.ok) {
               window.alert("Cadastro realizado com sucesso!");
-              window.location = "login.html";
+              window.location = "index.html#loginmodel";
               limparFormulario();
               finalizarAguardar();
           } else {

@@ -92,9 +92,27 @@ function cadastrar(req, res) {
     var email = req.body.email;
     var idade = req.body.idade;
     var cep = req.body.cep;
+
     var logradouro = req.body.logradouro;
     var bairro = req.body.bairro;
     var localidade = req.body.localidade;
+    var fotopadrao = "https://codigosdebarrasbrasil.com.br/wp-content/uploads/2018/02/foto-de-perfil.png";
+    var generoM = req.body.generoM;
+    var iddapreferencia = 1;
+
+    if (generoM == "funk") {
+        iddapreferencia = 1;
+    } else if (generoM == "samba") {
+        iddapreferencia = 2;
+    } else if (generoM == "forro") {
+        iddapreferencia = 3;
+    } else if (generoM == "trap") {
+        iddapreferencia = 4;
+    } else if (generoM == "rap") {
+        iddapreferencia = 5;
+    } else if (generoM == "eletronica") {
+        iddapreferencia = 6;
+    }
 
 
     if (nome == undefined) {
@@ -104,7 +122,7 @@ function cadastrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else {
-        usuarioModel.cadastrar(nome, apelido, email, usuario, senha, idade, cep, logradouro, bairro, localidade)
+        usuarioModel.cadastrar(nome, apelido, email, usuario, senha, idade, cep, logradouro, bairro, localidade, fotopadrao, generoM, iddapreferencia)
             .then(
                 function(resultado) {
                     res.json(resultado);
@@ -121,6 +139,7 @@ function cadastrar(req, res) {
             );
     }
 }
+
 
 
 
