@@ -144,6 +144,29 @@ function grafrics(req, res) {
         );
 }
 
+function altersenha(req, res) {
+    var ID = req.body.ID;
+    var senhaNova = req.body.senhaNova;
+    if (senhaNova == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else {
+        usuarioModel.altersenha(senhaNova, ID)
+            .then(
+                function(resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function(erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
 
 
 module.exports = {
@@ -153,6 +176,7 @@ module.exports = {
     listar,
     testar,
     fotoo,
-    grafrics
+    grafrics,
+    altersenha
     //
 }

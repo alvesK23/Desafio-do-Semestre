@@ -38,8 +38,15 @@ function entrar() {
 
                 sessionStorage.USUARIO_USUARIO = json.usuario;
                 sessionStorage.APELIDO_USUARIO = json.apelido;
+                sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
                 sessionStorage.FOTOPERFIL_USUARIO = json.fotoperfil;
+                sessionStorage.EMAIL_USUARIO = json.email;
+                sessionStorage.NASC_USUARIO = json.Nascimento;
+                sessionStorage.CRIACAOC_USUARIO = json.criacao_conta;
+                sessionStorage.BAIRRO_USUARIO = json.bairro;
+                sessionStorage.LOGRADOURO_USUARIO = json.logradouro;
+                sessionStorage.SENHA_USUARIO = json.senha;
 
                 setTimeout(function() {
                     window.location = "./dashboard/login.html";

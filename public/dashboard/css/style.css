@@ -348,3 +348,189 @@ body {
     color: white;
     font-size: 25px;
 }
+
+
+/*modal perfil*/
+
+.perfil {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.perfil:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: white;
+    border-width: 30px;
+    border: solid;
+    border-radius: 5px;
+    width: 40%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    color: black;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.popup .close:hover {
+    color: #06D85F;
+}
+
+.popup .content {
+    display: flex;
+    justify-content: center;
+    max-height: 30%;
+    overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .box {
+        width: 70%;
+    }
+    .popup {
+        width: 70%;
+    }
+}
+
+
+/*fim modal perfil*/
+
+.inputs {
+    display: inline-block;
+}
+
+.perfilftinha {
+    background-color: #F09C33;
+    height: 30vh;
+    width: 25vw;
+    margin-left: 95px;
+}
+
+
+/*modal TrocaSenha*/
+
+.trocaSenha {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.trocaSenha:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: white;
+    border-width: 30px;
+    border: solid;
+    border-radius: 5px;
+    width: 40%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    color: black;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.popup .close:hover {
+    color: #06D85F;
+}
+
+.popup .content {
+    display: flex;
+    justify-content: center;
+    max-height: 30%;
+    overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .box {
+        width: 70%;
+    }
+    .popup {
+        width: 70%;
+    }
+}
+
+
+/*fim modal TrocaSenha*/
+
+.altersenha {
+    font-size: 20px;
+    width: 40%;
+    height: 40px;
+    color: black;
+    border-radius: 7px;
+    border: solid;
+    border-color: #9cf0e1;
+    border-width: 1px;
+    margin-left: 30%;
+}
+
+.alters p {
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+}
+
+.senhas {
+    background-color: #9cf0e1;
+    border: solid;
+    border-radius: 15px;
+    border-color: black;
+    border-width: 1px;
+    height: 3vh;
+}

@@ -1,4 +1,4 @@
-fetch("/usuarios/grafico").then(function(res) {
+fetch("/usuarios/graficos").then(function(res) {
     res.json().then(function(json) {
         console.log(json);
         var GeneroMusical = []

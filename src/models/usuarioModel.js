@@ -39,12 +39,7 @@ function fotoo(foto, ID) {
 }
 
 
-function litsar() {
-    var instrucao = `select count(GeneroMusical),GeneroMusical 
-from usuario join preferenciaMusic on Fkpreferencia = preferenciaMusic.id group by GeneroMusical;
-`;
-    return database.executar(instrucao);
-}
+
 
 function grafrics() {
     instrucao = `select count(GeneroMusical) as quantia, a.GeneroMusical from usuario as u 
@@ -53,12 +48,18 @@ function grafrics() {
     return database.executar(instrucao);
 }
 
+function altersenha(senhaNova, ID) {
 
+    var instrucao = `UPDATE usuario set senha='${senhaNova}' where id = ${ID}`;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
 module.exports = {
     entrar,
     cadastrar,
     listar,
     fotoo,
-    grafrics
+    grafrics,
+    altersenha
 };

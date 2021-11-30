@@ -70,7 +70,56 @@
     </div>
 
 
+    <div id="perfil" class="perfil">
+        <div class="popup">
+            você esta em: <b>Perfil</b>
+            <h2 id="perfil07">Perfil Usuario</h2>
+            <div id="perfilftinha" class="perfilftinha"></div>
+            <div class="content">
 
+
+                <div class="inputs">
+                    <p> Nome: <b><span id="nomep"></span></b><br><br> Apelido: <b><span id="apelidop"></span></b></p>
+
+
+                    <p> E-mail: <b><span id="emailp"></span></b> </p>
+
+                    <p> Nasc: <b><span id="nascimentop"></span></b> <br><br> Conta criada Em: <b><span id="contap"></span></b></span>
+                    </p>
+
+
+                    <p> bairro: <b><span id="bairrop"></b> <br><br> Logradouro: <b><span id="logradourop"></b></p>
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+            <a class="close" href="#">&times;</a>
+        </div>
+
+    </div>
+
+    <div id="trocaSenha" class="trocaSenha">
+        <div class="popup">
+            você esta em: <b>Alterar Senha</b>
+            <h2 id="perfil07">Trocar senha</h2>
+            <div class="alters">
+                <p>Senha antiga: <input id="senhavelha" class="senhas">&nbsp;ss</p> &nbsp;
+                <p>Nova antiga: <input id="senhanova" class="senhas">&nbsp;ss</p>
+                <button onclick="mudarsenha()" class="altersenha">Mudar Senha</button>
+            </div>
+            <div class="content">
+
+            </div>
+            <a class="close" href="#">&times;</a>
+        </div>
+
+    </div>
 
     <div class="painel">
 
@@ -85,8 +134,8 @@
         </div>
 
         <button onclick="window.location.href='login.html' " class="button ">Inicio</button>
-        <button class="button " onclick="clikcar() ">Perfil</button>
-        <button onclick="testar()" class="button ">Postar Musica</button>
+        <button onclick="window.location.href='login.html#perfil' " class="button ">Perfil</button>
+        <button onclick="window.location.href='login.html#trocaSenha' " class="button ">Alterar senha</button>
         <button class="button ">Votar</button>
         <button class="button ">Noticias</button>
     </div>
@@ -106,12 +155,26 @@
 <script src="./js/grafico2.js"></script>
 <script>
     window.onload = function() {
+        perfil07.innerHTML = sessionStorage.NOME_USUARIO;
         var fotoperfilVar = sessionStorage.FOTOPERFIL_USUARIO;
-        foto_id.style.backgroundImage = "url(" + fotoperfilVar + ")";
 
-        b_usuario.innerHTML = `${sessionStorage.APELIDO_USUARIO}`;
+        foto_id.style.backgroundImage = "url(" + fotoperfilVar + ")";
+        perfilftinha.style.backgroundImage = "url(" + fotoperfilVar + ")";
+        b_usuario.innerHTML = sessionStorage.APELIDO_USUARIO;
+
+        nomep.innerHTML = sessionStorage.NOME_USUARIO;
+        apelidop.innerHTML = sessionStorage.APELIDO_USUARIO;
+        emailp.innerHTML = sessionStorage.EMAIL_USUARIO;
+        nascimentop.innerHTML = sessionStorage.NASC_USUARIO;
+        contap.innerHTML = sessionStorage.CRIACAOC_USUARIO;
+        bairrop.innerHTML = sessionStorage.BAIRRO_USUARIO;
+        logradourop.innerHTML = sessionStorage.LOGRADOURO_USUARIO;
+
+
+
 
     }
+
 
     function calcular() {
         var horas = Number(inpu_horasdia.value);
