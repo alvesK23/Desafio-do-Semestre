@@ -430,6 +430,8 @@ body {
 .perfilftinha {
     background-color: #F09C33;
     background: no-repeat;
+    background-size: 100%;
+    background-position-x: center;
     height: 30vh;
     width: 25vw;
     margin-left: 95px;

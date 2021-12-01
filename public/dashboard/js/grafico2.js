@@ -1,12 +1,12 @@
-fetch("/usuarios/graficos").then(function(res) {
-    res.json().then(function(json) {
-        console.log(json);
-        var GeneroMusical = []
-        var quantia = []
-        for (let index = 0; index < json.length; index++) {
-            GeneroMusical.push(json[index].GeneroMusical);
-            quantia.push(json[index].quantia);
-        }
+    fetch("/usuarios/graficos").then(function(res) {
+        res.json().then(function(json) {
+            console.log(json);
+            var GeneroMusical = []
+            var quantia = []
+            for (let index = 0; index < json.length; index++) {
+                GeneroMusical.push(json[index].GeneroMusical);
+                quantia.push(json[index].quantia);
+            }
 
         // Inicia uma variável do tipo constante (não pode ser reatribuida)
         const config2 = {
