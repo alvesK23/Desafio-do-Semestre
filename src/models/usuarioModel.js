@@ -43,7 +43,7 @@ function fotoo(foto, ID) {
 
 function grafrics() {
     instrucao = `select count(GeneroMusical) as quantia, a.GeneroMusical from usuario as u 
-    join preferenciaMusic as a where u.Fkpreferencia = a.id group by a.GeneroMusical;`;
+    join preferenciamusic as a where u.Fkpreferencia = a.id group by a.GeneroMusical;`;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
